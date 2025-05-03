@@ -1,0 +1,19 @@
+body {
+    background-image: url("/myblog/img/background1.webp");
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover; /* 关键：保持宽高比，覆盖整个区域 */
+    background-position: center; /* 让背景图居中显示 */
+    background-attachment: fixed; /* 固定背景 */
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.148);
+    z-index: -1;
+}

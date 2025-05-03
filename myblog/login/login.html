@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/login.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/css/bgi.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <!-- 登录表单 -->
+    <section id="login-form" class="form-container">
+        <h1>WELCOME</h1>
+        <div class="input-wrap in-1">
+            <input type="email" id="login-email" placeholder="Your email" required>
+            <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div class="input-wrap in-2">
+            <input type="password" id="login-password" placeholder="Your password" required>
+            <i class="fa-solid fa-lock"></i>
+        </div>
+        <div class="rem">
+            <p>
+                <input type="checkbox">
+                Remember me
+            </p>
+            <a href="#">Forget password?</a>
+        </div>
+        <button id="login-button">Login</button>
+        <p class="reg">Don't have an account?
+            <a id="show-register">Register</a>
+        </p>
+    </section>
+
+    <!-- 注册表单 -->
+    <section id="register-form" class="form-container hidden">
+        <h1>REGISTER</h1>
+        <div class="input-wrap in-1">
+            <input type="text" id="register-username" placeholder="Username" required>
+            <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="input-wrap in-2">
+            <input type="email" id="register-email" placeholder="Email" required>
+            <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div class="input-wrap in-3">
+            <input type="password" id="register-password" placeholder="Password" required>
+            <i class="fa-solid fa-lock"></i>
+        </div>
+        <div class="input-wrap in-4">
+            <input type="password" id="register-confirmPassword" placeholder="Confirm Password" required>
+            <i class="fa-solid fa-lock"></i>
+        </div>
+        <button onclick="alert('服务器资源有限，注册功能暂时关闭')">Sign Up</button>
+        <p class="reg">Already have an account?
+            <a id="show-login">Login</a>
+        </p>
+    </section>
+    <script type="text/javascript" src="./js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+/*导航栏样式*/
+li{
+    list-style-type: none;
+}
+nav {
+    top: 0;
+    width: 100%;
+    background: #ffffffee;
+    position: fixed;
+    z-index: 2;
+    box-shadow: 1px 2px 5px rgba(66, 66, 66,0.2);
+}
+
+.nav-container {
+    width: 100%;
+    padding: 0 20px;
+}
+
+.nav-links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links .nav-left,
+.nav-links .nav-right{
+    display: flex;
+    list-style: none;
+    transition: all 0.3s ease;
+    align-items: center;
+}
+
+.nav-card {
+    position: relative;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    padding: 0 20px;/*导航栏选项宽度*/
+}
+
+.nav-card a {
+    display: block;     
+    width: 100%;        
+    height: 100%;     
+    color: #00000072;
+}
+
+a:hover {
+    color: #000;
+}
+
+#research{
+    width: 550px;
+    height: 35px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+/* 移动端导航栏样式 */
+.mobile-nav {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: black;
+    font-size: 1.5rem;
+    padding: 10px;
+    height: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+    nav { 
+        display: none; 
+    }
+    .nav-container{
+        height: 50px;
+        display:flex;
+        justify-content:center;
+    }
+
+    .mobile-nav {
+        display: block;
+        background: #ffffffee;
+        box-shadow: 1px 2px 5px rgba(66, 66, 66,0.2);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        box-shadow: 1px 2px 5px rgba(66, 66, 66,0.2);
+    }
+
+    .nav-links .nav-left {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+    }
+
+    .nav-links.active .nav-left {
+        display: flex;
+    }
+
+    .nav-card {
+        width: 100%;
+    }
+    #research{
+        width: 70vw;
+        min-width: 15rem;
+    }
+    .hamburger {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 40%;
+        transform: translateY(-50%);
+    }
+
+    .mobile-nav .nav-container {
+        position: relative;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        max-height: 0;
+        overflow: scroll;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav-links.active {
+        max-height: 500px; /* 根据实际内容高度调整 */
+    }
+
+    .nav-links li {
+        line-height:50px; 
+    }
+
+    .hamburger {
+        display: block;
+    }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./test.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/css/bgi.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/css/nav.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-links">
+                <ul class="nav-left">
+                    <li class="nav-card"><a href="/myblog/index.html">首页</a></li>
+                    <li class="nav-card"><a href="/myblog/dairy/html/dairy-write.html">笔记</a></li>
+                    <li class="nav-card"><a href="/myblog/create/create.html">创作</a></li>
+                    <li class="nav-card"><a href="#" onclick="alert('暂未开放')">抽象树洞</a></li>
+                    <li class="nav-card"><a href="/myblog/friend/friend.html">友情链接</a></li>
+                </ul>
+                <ul class="nav-right">
+                    <li><input type="search" id="research" placeholder="  搜索"></li>
+                    <li class="nav-card"><a href="/myblog/myblog/myblog.html">个人中心</a></li>
+                    <!-- <li class="nav-card"><a href="#">个人中心</a></li> -->
+                    <li class="nav-card"><a href="/myblog/login/login.html">切换账号</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- 移动端导航栏 -->
+    <nav class="mobile-nav">
+        <div class="nav-container">
+            <li><input type="search" id="research" placeholder="  搜索"></li>
+            <div class="nav-links">
+                <ul class="nav-left">
+                    <li class="nav-card"><a href="/myblog/index.html">首页</a></li>
+                    <li class="nav-card"><a href="/myblog/dairy/html/dairy-write.html">笔记</a></li>
+                    <li class="nav-card"><a href="/myblog/create/create.html">创作</a></li>
+                    <li class="nav-card"><a href="#" onclick="alert('暂未开放')">抽象树洞</a></li>
+                    <li class="nav-card"><a href="/myblog/friend/friend.html">友情链接</a></li>
+                    <li class="nav-card"><a href="/myblog/myblog/myblog.html">个人中心</a></li>
+                    <li class="nav-card"><a href="/myblog/login/login.html">切换账号</a></li>
+                </ul>
+            </div>
+            <button class="hamburger">☰</button>
+        </div>
+    </nav>
+    <div class="post-container">
+        <!-- 帖子内容 -->
+        <div class="post-content">
+            <h1 class="post-title">这是一个帖子标题</h1>
+            <div class="author-nickname">
+                <img src="#" class="author-avatar" alt="作者头像" data-user-id="123">
+                <span class="author-name">作者名称</span>
+            </div>
+            <div class="cover-img">
+                <img src="">
+            </div>
+            <div class="post-body">
+                <p>这里是帖子正文内容，可以包含多段文字...</p>
+                <p>这是正文的第二段内容...</p>
+            </div>
+            <div class="post-time">2024-03-20 10:00</div>
+        </div>
+
+        <!-- 评论区 -->
+        <div class="comments-section">
+            <h2 class="comments-title">评论</h2>
+            <form class="comment-form">
+                <input type="hidden" class="article-id">
+                <textarea class="comment-input" placeholder="写下你的评论..."></textarea>
+                <button type="submit" class="submit-btn">发布评论</button>
+            </form>
+            <div class="comment-list">
+                
+            </div>
+
+            
+        </div>
+    </div>
+    <script type="text/javascript" src="/myblog/js/nav.js"></script>
+    <script type="text/javascript" src="./test.js"></script>
+</body>
+</html>

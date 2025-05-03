@@ -1,0 +1,360 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.head{
+    grid-column: 4/13;
+    grid-row: 1;
+    position: relative;
+    height: 200px;
+    text-align: center;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.head:hover{
+    height: 300px;
+}
+.head img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.container{
+    grid-column: 4/13;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 20px;
+    min-width: 55rem;
+}
+.information{
+    position: relative;
+    height: 150px;
+    grid-row: 1;
+    grid-column: 1/16;
+    background-color: rgba(255, 255, 255, 0.913);
+    display: grid;
+    grid-template-columns: repeat(30, 1fr);
+    grid-template-rows: 20px;
+}
+.avatar{
+    position: absolute;
+    grid-column: 2/8;
+    grid-row: 1;
+    top:-5rem;
+    border: 5px solid white;
+    border-radius: 20px;
+}
+.information img{
+    width: 100%;
+}
+.id-inf{
+    margin-top: 20px;
+    grid-column: 9/23;
+    grid-row: 1;
+}
+.username{
+    margin-bottom: 20px;
+    font-size: larger;
+    font-weight: 600;
+}
+.inf{
+    font-weight: 350;
+}
+.follow{
+    border: rgb(22, 107, 15) solid 1px;
+    grid-column: 23/31;
+    grid-row: 3;
+    right: 0;
+    margin: 1rem;
+    border-radius: 0.2rem;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    max-width: 8rem;
+    max-height: 2rem;
+}
+.follow-button{
+    color: rgb(22, 107, 15);
+}
+.follow:hover{
+    background-color: rgba(23, 107, 15, 0.139);
+}
+.tab-container{
+    grid-column: 1/11;
+    grid-row: 2;
+    border: 1px solid rgba(0,0,0,0.2);
+    background-color: #ffffffeb;
+    color: #000;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+ul.tab-title{
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #ccc;
+}
+ul.tab-title li{
+    list-style: none;
+    line-height: 50px;
+    margin: 0 2rem;
+    position: relative;
+    cursor: pointer;
+    transition: all .3s;
+}
+ul.tab-title li:hover,
+ul.tab-title li.active{
+    color: rgb(22, 107, 15);
+}
+ul.tab-title li::before{
+    content: '';
+    display: block;
+    width: 0;
+    height: 4px;
+    position: absolute;;
+    bottom: -2px;
+    left: 50%;
+    background-color: rgb(22, 107, 15);
+    border-radius: 2px;
+    transition: all .3s;
+}
+ul.tab-title li:hover:before,
+ul.tab-title li.active:before{
+    width: 100%;
+    left: 0;
+}
+.tab-panel{
+    display: none;
+    flex-direction: column;
+    color: #999;
+}
+.tab-panel.show{
+    display: flex;
+}
+.article-card{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    background-color: rgba(255, 255, 255, 0.808);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+.article-title{
+    grid-row: 1;
+    grid-column: 1/12;
+}
+.article-card img{
+    margin: 10px;
+    grid-column: 1/4;
+    grid-row: 2/3;
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.article-container{
+    margin-top: 20px;
+    grid-row: 2;
+    grid-column: 4/12;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    margin-left: 20px;
+}
+
+.favorite{
+    background-color: transparent; 
+    border: none;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 10px;
+}
+.favorite:focus{
+    color: rgba(15, 73, 10, 0.7);
+}
+#favo{
+    grid-row: 3;
+    align-self: end;
+}
+.article-card:hover{
+    background-color: rgba(0, 0, 0, 0.1); 
+}
+.right-container{
+    position: sticky;
+    grid-column: 11/16;
+}
+.creation,
+.concern{
+    margin-bottom: 5px;
+    padding: 20px 30px;
+    border: 1px solid rgba(0,0,0,0.2);
+    background-color: #ffffffe8;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    object-fit: cover;
+}
+.creation{
+    height: 300px;
+}
+.creater{
+    padding: 10px;
+    margin-top: 20px;
+    text-align: center; 
+    color: rgba(15, 73, 10, 0.7);
+    border: 2px solid rgba(15, 73, 10, 0.7);
+}
+.number{
+    display: flex;
+    align-items: center;
+}
+
+.concern{
+    height: 150px;
+}
+.adv{
+    height: 230px;
+}
+ul{ 
+    list-style: none; 
+}
+/* 移动端适配 */
+@media (max-width: 1200px) {
+    .head{
+        grid-column: 1/16;
+        min-width: 25rem;
+    }
+    .container {
+        grid-column: 1/16;
+        min-width: 25rem;
+    }
+    .avatar{
+        grid-column: 2/7;
+        top:-5vw;
+    }
+    .tab-container,
+    .right-container {
+        grid-column: 1/16; /* 占满整列 */
+        grid-row: auto; /* 重置行定位 */
+    }
+
+    /* 通过order控制显示顺序 */
+    .right-container {
+        display: none;/*隐藏右侧栏*/
+        position: relative;
+        width: 100%;
+        min-width: 25rem;
+        z-index: 1;
+        order: 1; /* 显示在tab-container上方 */
+        margin-bottom: 1rem;
+        place-self: center;
+    }
+    
+    .tab-container {
+        order: 2;
+        width: 100%;
+        min-width: 25rem;
+        place-self: center;
+    }
+    /* 调整内部元素间距 */
+    .creation,
+    .concern,
+    .adv {
+        padding: 15px;
+        margin-bottom: 0;
+        height: auto !important; /* 移除固定高度 */
+        min-height: 150px; /* 设置最小高度 */
+    }
+    /* 优化细节显示 */
+    h3 {
+        font-size: 1.2rem;
+    }
+    hr {
+        margin: 10px 0;
+    }
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* 头像预览样式 */
+.avatar-preview {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+/* 表单元素样式 */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+.button-group {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.modal button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.confirm-btn {
+    background-color: rgb(22, 107, 15);
+    color: white;
+}
+
+.cancel-btn {
+    background-color: #666;
+    color: white;
+}

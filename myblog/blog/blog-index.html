@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云深晴雨|MyBlog</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/blog-index.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/css/nav.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/css/bgi.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/css/firework.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <script type="text/javascript" src="./js/articleGet.js"></script>
+    <!-- 添加烟花canvas -->
+    <!-- <canvas id="fireworks-canvas"></canvas> -->
+    <!-- 导航栏 -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-links">
+                <ul class="nav-left">
+                    <li class="nav-card"><a href="/myblog/blog/blog-index.html" style="color: black;">首页</a></li>
+                    <li class="nav-card"><a href="/myblog/dairy/html/dairy-write.html">笔记</a></li>
+                    <li class="nav-card"><a href="/myblog/create/create.html">创作</a></li>
+                    <li class="nav-card"><a href="#" onclick="alert('暂未开放')">抽象树洞</a></li>
+                    <li class="nav-card"><a href="/myblog/friend/friend.html">友情链接</a></li>
+                </ul>
+                <ul class="nav-right">
+                    <li><input type="search" id="research" placeholder="  搜索"></li>
+                    <li class="nav-card"><a href="/myblog/myblog/myblog.html">个人中心</a></li>
+                    <!-- <li class="nav-card"><a href="#">个人中心</a></li> -->
+                    <li class="nav-card"><a href="/myblog/login/login.html">切换账号</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- 移动端导航栏 -->
+    <nav class="mobile-nav">
+        <div class="nav-container">
+            <li><input type="search" id="research" placeholder="  搜索"></li>
+            <div class="nav-links">
+                <ul class="nav-left">
+                    <li class="nav-card"><a href="/myblog/blog/blog-index.html" style="color: black;">首页</a></li>
+                    <li class="nav-card"><a href="/myblog/dairy/html/dairy-write.html">笔记</a></li>
+                    <li class="nav-card"><a href="/myblog/create/create.html">创作</a></li>
+                    <li class="nav-card"><a href="#" onclick="alert('暂未开放')">抽象树洞</a></li>
+                    <li class="nav-card"><a href="/myblog/friend/friend.html">友情链接</a></li>
+                    <li class="nav-card"><a href="/myblog/myblog/myblog.html">个人中心</a></li>
+                    <li class="nav-card"><a href="/myblog/login/login.html">切换账号</a></li>
+                </ul>
+            </div>
+            <button class="hamburger">☰</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="tab-container">
+            <ul class="tab-title">
+                <li>关注</li>
+                <li class="active">推荐</li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-panel">暂无关注</div>
+                <div class="tab-panel show" id="articlesContainer">
+                    <!-- <a href="/test.html">
+                        <div class="article-card">
+                            <div class="article-title">
+                                <h3>文章标题</h3>
+                            </div>
+                            <img class="article-img" src="image/pic7.png">
+                            <div class="article-container">
+                                <p>
+                                    文章内容
+                                </p>    
+                                <div id="favo">
+                                    <button class="favorite"><i class="fa fa-comment" aria-hidden="true" /></i>评论</button>
+                                    <button class="favorite"><i class="fa fa-paper-plane" aria-hidden="true" /></i>分享</button>
+                                    <button class="favorite"><i class="fa fa-heart" aria-hidden="true" /></i>喜欢</button>
+                                    <button class="favorite"><i class="fa fa-star" aria-hidden="true" /></i>收藏</button>
+                                </div>
+                            </div>
+                        </div>
+                    </a> -->
+                      
+                </div>
+            </div>
+        </div>    
+        <div class="right-container">
+            <div class="creation">
+                <h3>网站公告</h3>
+                <br><hr><br>
+                <div class="number">
+                    移动端适配优化中，推荐使用PC端进行浏览<br>
+                    注册功能暂时关闭<br>
+                    新增查看作者主页功能<br>
+                    上传图片请转为webp格式<br>
+                    网站持续更新中，具体可查看更新日志，敬请期待......
+                </div>
+            </div>
+            <div class="concern">
+                <h3>个人资料</h3>
+                <br><hr><br>
+                <span class="concern-id" style="font-weight: 100;">UID:474830983</span>
+                <span></span>
+            </div>
+            <!-- <div id="ads">
+                <img src="./images/img1.png" alt="" class="show" />
+                <img src="./images/img2.png" alt="" />
+                <img src="./images/img3.png" alt="" />
+                <img src="./images/img4.png" alt="" />
+                <img src="./images/img5.jpg" alt="" />
+                <ul>
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div> -->
+        </div>
+        
+    </div>
+    <!-- <script type="text/javascript" src="/myblog/js/firework.js"></script> -->
+    <script type="text/javascript" src="/myblog/js/userinfo.js"></script>
+    <script type="text/javascript" src="/myblog/blog/js/blog-index.js"></script>
+    
+</body>
+</html>

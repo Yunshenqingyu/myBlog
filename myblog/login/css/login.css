@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    font-family: poppins;
+}
+a{
+    text-decoration: none;
+}
+body{
+    /* background-image: url(/myblog/img/background1.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#login-form,
+#register-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.068);
+    width: 35%;
+    padding: 50px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.329);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.13);
+    overflow: hidden;
+    min-width: 24rem;
+}
+
+h1{
+    font-size: 2.5rem;
+    color: white;
+    margin: 25px;
+    letter-spacing: 3px;
+    animation: reloadA 0.5s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.1s;
+}
+.input-wrap{
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    height: 60px;
+    width: 90%;
+    border-radius: 50px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.459);
+}
+.in-1{
+    animation: reloadA 0.6s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.2s;
+}
+.in-2{
+    animation: reloadA 0.7s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.3s;
+}
+.in-2 input{
+    width: 100%;
+}
+input{
+    background-color: transparent;
+    font-size: 1.2rem;
+    color: white;
+    padding: 5px 25px;
+}
+input::placeholder{
+    font-size: 1.2rem;
+    color: white;
+}
+.input-wrap i{
+    font-size: 1.2rem;
+    color: white;
+    padding-right: 25px;
+
+}
+.rem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin-bottom: 40px;
+    animation: reloadA 0.9s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.4s;
+    
+}
+.rem p,
+.rem a{
+    font-size: 1.2rem;
+    color: white;
+}
+button{
+    font-size: 1.2rem;
+    height: 55px;
+    width: 90%;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    animation: reloadA 1s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.5s;
+    
+}
+button:hover{
+    background-color: rgb(214, 214, 214);
+}
+.reg{
+    font-size: 1.2rem;
+    color: white;
+    margin-top: 40px;
+    animation: reloadA 1.1s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.6s;
+    
+}
+.reg a{
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+.hidden {
+    display: none !important;
+}
+.input-wrap.in-3 {
+    animation: reloadA 0.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.4s;
+}
+.input-wrap.in-4 {
+    animation: reloadA 0.9s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.5s;
+}
+#register-form button {
+    animation-delay: 0.6s;
+}
+#register-form .reg {
+    animation-delay: 0.7s;
+}
+
+@keyframes reloadA{
+    from{
+        transform: translateY(250px);
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>TrioNote</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Quill 富文本编辑器样式 -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <!-- 引入 Sortable.js 库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/myblog/dairy/css/write.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/css/bgi.css">
+</head>
+<body data-theme="light">
+    
+    <section id="section" class="section">
+        <!-- 背景图片 -->
+        <style type="text/css">
+            body{
+              background: url("/myblog/img/background1.webp") no-repeat center center fixed;
+                          /*兼容浏览器版本*/
+                          -webkit-background-size: cover;
+                          -o-background-size: cover;                
+                          background-size: cover;
+            } /*背景图*/
+       
+            .test {
+              margin-top: 100px;
+            }
+          </style>
+        <!-- 鼠标指针 -->
+        <div id="g-pointer-1"></div>
+        <div id="g-pointer-2"></div>
+    </section>
+<header>
+    <h1>笔记</h1>
+</header>
+
+<div id="container">
+    <div id="memo-list">
+        <button id="add-memo">
+            添加备忘录
+        </button>
+
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="搜索备忘录..." title="输入关键词搜索备忘录">
+        </div>
+        <div id="select-all-container">
+            <input type="checkbox" id="select-all" title="选择或取消选择所有备忘录">
+            <label for="select-all">全选</label>
+        </div>
+        <!-- 排序方式选择 -->
+        <div id="sort-container" style="margin-bottom: 10px;">
+            <label for="sort-select" style="font-size: 14px; margin-right: 5px;">排序方式:</label>
+            <select id="sort-select" style="padding: 5px; border: 1px solid var(--input-border-color); border-radius: 5px;">
+                <option value="date-desc">日期倒序</option>
+                <option value="date-asc">日期顺序</option>
+                <option value="name-asc">名称排序</option>
+                <option value="custom">自定义排序</option>
+            </select>
+        </div>
+        <ul id="list" class="fade-in">
+            <!-- 备忘录列表 -->
+        </ul>
+
+        <!-- 新增：将 4 个按钮/标签放入 2×2 宫格 -->
+        <div id="action-grid">
+            <button id="delete-selected" title="删除选中的备忘录">
+                删除选中
+            </button>
+            <button id="export-selected-button" title="导出选中的备忘录为 ZIP">
+                导出选中
+            </button>
+            <label for="import-zip" id="import-zip-label" title="导入一个包含备忘录的 ZIP 文件">
+                导入 ZIP
+            </label>
+            <label for="import-txt" id="import-txt-label" title="导入一个包含纯文本的 .txt 文件">
+                导入 TXT
+            </label>
+        </div>
+
+        <!-- 隐藏的 file input -->
+        <input type="file" id="import-zip" accept=".zip" />
+        <input type="file" id="import-txt" accept=".txt" />
+    </div>
+
+    <div id="memo-editor">
+        <!-- 标题输入框 -->
+        <input
+          type="text"
+          id="title-input"
+          placeholder="在此输入备忘录标题"
+          title="请输入备忘录标题"
+        />
+
+        <!-- Quill 编辑器 -->
+        <div id="quill-editor">
+            <div id="toolbar">
+                <select class="ql-header">
+                    <option selected></option>
+                    <option value="1">标题I</option>
+                    <option value="2">标题II</option>
+                </select>
+                <button class="ql-bold" title="加粗"><strong>B</strong></button>
+                <button class="ql-italic" title="斜体"><em>I</em></button>
+                <button class="ql-underline" title="下划线"><u>U</u></button>
+                <button class="ql-strike" title="删除线"><s>S</s></button>
+                <button class="ql-list" value="ordered" title="有序列表">1.</button>
+                <button class="ql-list" value="bullet" title="无序列表">&bull;</button>
+                <button class="ql-link" title="插入链接">🔗</button>
+                <button class="ql-image" title="插入图片">🖼️</button>
+                <button class="ql-clean" title="清除格式">✖️</button>
+            </div>
+            <div id="editor-container" class="ql-container ql-snow"></div>
+        </div>
+
+        <div id="controls">
+            <button id="export-zip" title="导出所有备忘录为 ZIP">
+                导出所有
+            </button>
+            <button id="increase-font" title="增大文字">A+</button>
+            <button id="decrease-font" title="减小文字">A-</button>
+        </div>
+    </div>
+</div>
+
+<!-- Save Notification -->
+<div id="save-notification">
+    <!-- 绿色勾号 SVG -->
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+    </svg>
+    <span>已保存</span>
+</div>
+
+<!-- Modal for Screen Size Prompt -->
+<div id="mobile-modal" class="modal">
+    <div class="modal-content">
+        <p>当前屏幕尺寸较小，部分功能可能体验不佳。是否继续使用？</p>
+        <div class="modal-buttons">
+            <button class="continue-btn" id="continue-btn">继续</button>
+            <button class="cancel-btn" id="cancel-btn">不继续</button>
+        </div>
+    </div>
+</div>
+
+<!-- 新增：版权声明 -->
+<!-- <footer>
+    ©2025 xiaowugd
+</footer> -->
+
+
+<!-- 引入 Quill 富文本编辑器 -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+<!-- 引入 JSZip 库 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<!-- 引入 FileSaver 库，用于保存文件 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+<script type="text/javascript" src="/myblog/dairy/js/write.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人博客</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/myblog/css/firework.css">
+    <link rel="stylesheet" type="text/css" href="./css/myblog.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/css/nav.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/css/bgi.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- 添加烟花canvas -->
+    <!-- <canvas id="fireworks-canvas"></canvas> -->
+    <!-- 导航栏 -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-links">
+                <ul class="nav-left">
+                    <li class="nav-card"><a href="/myblog/blog/blog-index.html">首页</a></li>
+                    <li class="nav-card"><a href="/myblog/dairy/html/dairy-write.html">笔记</a></li>
+                    <li class="nav-card"><a href="/myblog/create/create.html">创作</a></li>
+                    <li class="nav-card"><a href="#" onclick="alert('暂未开放')">抽象树洞</a></li>
+                    <li class="nav-card"><a href="/myblog/friend/friend.html">友情链接</a></li>
+                </ul>
+                <ul class="nav-right">
+                    <li><input type="search" id="research" placeholder="  搜索"></li>
+                    <li class="nav-card"><a href="/myblog/myblog/myblog.html" style="color: black;">个人中心</a></li>
+                    <!-- <li class="nav-card"><a href="#">个人中心</a></li> -->
+                    <li class="nav-card"><a href="/myblog/login/login.html">切换账号</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- 移动端导航栏 -->
+    <nav class="mobile-nav">
+        <div class="nav-container">
+            <li><input type="search" id="research" placeholder="  搜索"></li>
+            <div class="nav-links">
+                <ul class="nav-left">
+                    <li class="nav-card"><a href="/myblog/blog/blog-index.html">首页</a></li>
+                    <li class="nav-card"><a href="/myblog/dairy/html/dairy-write.html">笔记</a></li>
+                    <li class="nav-card"><a href="/myblog/create/create.html">创作</a></li>
+                    <li class="nav-card"><a href="#" onclick="alert('暂未开放')">抽象树洞</a></li>
+                    <li class="nav-card"><a href="/myblog/friend/friend.html">友情链接</a></li>
+                    <li class="nav-card"><a href="/myblog/myblog/myblog.html" style="color: black;">个人中心</a></li>
+                    <li class="nav-card"><a href="/myblog/login/login.html">切换账号</a></li>
+                </ul>
+            </div>
+            <button class="hamburger">☰</button>
+        </div>
+    </nav>
+    <div class="head">
+        <img src="image/blogbg.jpg">
+    </div>
+    <div class="container">
+        <div class="information">
+            <img class="avatar" src="image/avatar.jpg">
+            <div class="id-inf">
+                <div class="username">
+                    <p>其实我也不知道该叫什么好</p>
+                </div>
+                <div class="inf">
+                    <p>这个人很懒，什么也没有留下</p>
+                </div>
+            </div>
+            <a href="#" class="edit" onclick="showEditModal()">
+                <div class="edit-button">编辑资料
+                </div>
+            </a>
+            
+        </div>
+        <div class="tab-container">
+            <ul class="tab-title">
+                <li class="active">我的发布</li>
+                <li>我的点赞</li>
+                <li>我的收藏</li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-panel show" id="articlesContainer">
+                    暂无发布
+                </div>
+                <div class="tab-panel">暂无点赞</div>
+                <div class="tab-panel">暂无收藏</div>
+            </div>
+        </div>  
+        <div class="right-container">
+            <div class="creation">
+                <h3>网站公告</h3>
+                <br><hr><br>
+                <div class="number">
+                    移动端适配优化中，推荐使用PC端进行浏览<br>
+                    注册功能暂时关闭<br>
+                    新增查看作者主页功能<br>
+                    上传图片请转为webp格式<br>
+                    网站持续更新中，具体可查看更新日志，敬请期待......
+                </div>
+            </div>
+            <div class="concern">
+                <h3>个人资料</h3>
+                <br><hr><br>
+                <span class="concern-id" style="font-weight: 100;">UID:474830983</span>
+                <span></span>
+            </div>
+            
+        </div>
+    </div>
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h2>编辑资料</h2>
+            <form id="profileForm">
+                <!-- 头像上传 -->
+                <div class="form-group">
+                    <label>头像</label>
+                    <input type="file" id="avatarInput" accept="image/*" hidden>
+                    <!-- 隐藏的 input -->
+                    <input type="hidden" id="avatarData" name="avatar">
+                    <img src="placeholder-avatar.jpg" class="avatar-preview" 
+                         onclick="document.getElementById('avatarInput').click()">
+                  </div>
+    
+                <!-- 昵称 -->
+                <div class="form-group">
+                    <label for="nickname">昵称</label>
+                    <input type="text" id="nickname" required maxlength="20">
+                </div>
+    
+                <!-- 个人简介 -->
+                <div class="form-group">
+                    <label for="bio">个人简介</label>
+                    <textarea id="bio" maxlength="200"></textarea>
+                </div>
+    
+                <!-- 操作按钮 -->
+                <div class="button-group">
+                    <button type="button" class="cancel-btn" onclick="hideEditModal()">取消</button>
+                    <button type="submit" class="confirm-btn">保存修改</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- <script type="text/javascript" src="/myblog/js/firework.js"></script> -->
+    <script type="text/javascript" src="./js/myblog.js"></script>
+    <script type="text/javascript" src="./js/articleGetUID.js"></script>
+    <script type="text/javascript" src="/myblog/js/userinfo.js"></script>
+    <script type="text/javascript" src="/myblog/js/nav.js"></script>
+</body>
+</html>
